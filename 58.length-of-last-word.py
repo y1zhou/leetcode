@@ -5,7 +5,8 @@
 #
 class Solution:
     def lengthOfLastWord(self, s: str) -> int:
-
+        # One-liner:
+        # return len(s.rstrip().split(" ")[-1])
         ans = 0
         for x in s.rstrip()[::-1]:
             if x == " ":
