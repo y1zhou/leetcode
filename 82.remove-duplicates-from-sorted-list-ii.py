@@ -40,18 +40,17 @@ class Solution:
         ans.next = head
 
         prev = ans
-        node = head
-        while node and node.next:
-            if node.val == node.next.val:
-                while node and node.next and node.val == node.next.val:
-                    node = node.next
+        while head and head.next:
+            if head.val == head.next.val:
+                while head and head.next and head.val == head.next.val:
+                    head = head.next
                 # NOTE: the following line *will* change ans as well
-                prev.next = node.next  # node is still pointing to the last dup value
+                prev.next = head.next  # head is still pointing to the last dup value
             else:
                 # NOTE: the following line *won't* change ans; it will change the node
                 # prev is pointing to in ans, so that the unique nodes will remain
                 prev = prev.next
-            node = node.next
+            head = head.next
 
         return ans.next
 
